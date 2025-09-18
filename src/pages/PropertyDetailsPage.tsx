@@ -52,6 +52,11 @@ export default function PropertyDetailsPage() {
     });
   }, [series]);
 
+  // Work around react-leaflet type mismatch under React 19 typings by loosening specific components
+  const AnyMapContainer = MapContainer as unknown as React.ComponentType<any>;
+  const AnyTileLayer = TileLayer as unknown as React.ComponentType<any>;
+  const AnyCircle = Circle as unknown as React.ComponentType<any>;
+
   if (loading) {
     return (
       <div className="mx-auto max-w-4xl px-4 py-8 text-gray-700">Loading...</div>
@@ -149,8 +154,7 @@ export default function PropertyDetailsPage() {
             <div className="rounded-xl border border-gray-200 p-4">
               <h2 className="mb-3 text-sm font-semibold text-gray-900">Map</h2>
               <div className="h-64 w-full overflow-hidden rounded-lg">
-                {/* @ts-expect-error react-leaflet type mismatch in some setups */}
-                <MapContainer
+                <AnyMapContainer
                   center={[property.coordinates.lat, property.coordinates.lng]}
                   zoom={12}
                   scrollWheelZoom={false}
@@ -158,21 +162,19 @@ export default function PropertyDetailsPage() {
                   className="h-full w-full"
                 >
                   <ZoomControl position="topright" />
-                  {/* @ts-expect-error react-leaflet type mismatch in some setups */}
-                  <TileLayer
+                  <AnyTileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     attribution="&copy; OpenStreetMap contributors"
                   />
                   <Marker position={[property.coordinates.lat, property.coordinates.lng]}>
                     <Popup>{property.title}</Popup>
                   </Marker>
-                  {/* @ts-expect-error react-leaflet type mismatch in some setups */}
-                  <Circle
+                  <AnyCircle
                     center={[property.coordinates.lat, property.coordinates.lng]}
                     radius={1500}
                     pathOptions={{ color: "#2563eb", fillColor: "#60a5fa", fillOpacity: 0.15 }}
                   />
-                </MapContainer>
+                </AnyMapContainer>
               </div>
             </div>
           )}
