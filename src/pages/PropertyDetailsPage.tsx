@@ -149,6 +149,7 @@ export default function PropertyDetailsPage() {
             <div className="rounded-xl border border-gray-200 p-4">
               <h2 className="mb-3 text-sm font-semibold text-gray-900">Map</h2>
               <div className="h-64 w-full overflow-hidden rounded-lg">
+                {/* @ts-expect-error react-leaflet type mismatch in some setups */}
                 <MapContainer
                   center={[property.coordinates.lat, property.coordinates.lng]}
                   zoom={12}
@@ -157,6 +158,7 @@ export default function PropertyDetailsPage() {
                   className="h-full w-full"
                 >
                   <ZoomControl position="topright" />
+                  {/* @ts-expect-error react-leaflet type mismatch in some setups */}
                   <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     attribution="&copy; OpenStreetMap contributors"
@@ -164,6 +166,7 @@ export default function PropertyDetailsPage() {
                   <Marker position={[property.coordinates.lat, property.coordinates.lng]}>
                     <Popup>{property.title}</Popup>
                   </Marker>
+                  {/* @ts-expect-error react-leaflet type mismatch in some setups */}
                   <Circle
                     center={[property.coordinates.lat, property.coordinates.lng]}
                     radius={1500}
