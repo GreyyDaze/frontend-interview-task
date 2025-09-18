@@ -56,7 +56,6 @@ Already implemented in this submission:
 - Responsive listings grid, reusable components, and empty state message.
 - Details page with enhanced price chart (gradient area + 3-point moving average) and upgraded map (zoom control, circle overlay, improved UX).
 - Card hover shadow and scale animation per requirement.
-- Professional back-to-listing button styling.
 - Accessibility improvements: skip link, main/brand landmarks, labeled inputs, focus-visible styles, aria-live on results.
 - Pagination UI with total listings count.
 - Skeleton loaders and spinner for list page.
