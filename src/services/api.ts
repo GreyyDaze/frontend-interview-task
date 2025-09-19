@@ -1,5 +1,4 @@
 import type { Property } from "../types/property";
-import { properties as seed } from "../data/properties";
 
 const API_BASE = "https://s3.us-central-1.wasabisys.com/mashvisor-cdn";
 
