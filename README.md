@@ -32,6 +32,8 @@ npm run dev
 - Hover animation on cards (shadow + subtle scale).
 - Details page: large image, meta, price chart, and map.
 - Loading UX: skeleton cards and inline spinner during fetch.
+- Real API integration: Fetches from Mashvisor API with intelligent fallback to extended mock data.
+- Data transparency: UI shows data source information and fallback behavior.
 
 ## Time and satisfaction
 
@@ -45,11 +47,13 @@ npm run dev
 - Improvements if given more time (plain English):
   - Hook to save filters in the URL: So search/sort/page survive refresh and can be shared.
   - Debounced search: Wait a split second before searching to avoid extra requests.
-  - Real API + caching: Swap mock for a real endpoint and add smart caching (React Query).
+  - Smart caching: Add React Query for intelligent API caching and background updates.
   - Image optimization: Use responsive images and blur-up placeholders for faster loading.
   - Dark mode: Add a theme toggle and consistent color tokens.
   - Map clustering: Group nearby markers and add custom marker icons.
   - SEO basics: Route titles/meta tags; better link previews.
+  - Use a proper REST API with server-side pagination, search, and filtering. Remove client-side filtering/sorting logic, let server handle everything
+
 
 Already implemented in this submission:
 - Mock fetch service with pagination, filtering (search/title, min bedrooms), and sorting (price asc/desc).
@@ -60,3 +64,7 @@ Already implemented in this submission:
 - Pagination UI with total listings count.
 - Skeleton loaders and spinner for list page.
 - Code splitting: lazily loaded details route with Suspense fallback.
+
+Updated the code:
+- Real API integration: Fetches from Mashvisor API with fallback to extended mock data.
+- Data source note: UI shows information about API integration and fallback behavior.

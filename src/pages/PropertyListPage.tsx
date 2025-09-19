@@ -95,26 +95,31 @@ export default function PropertyListPage() {
         <div className="flex-1" />
         <div className="flex items-center gap-3">
           <button
-          className="inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm disabled:opacity-50"
+            className="inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm disabled:opacity-50"
             onClick={() => setPage((p) => Math.max(1, p - 1))}
             disabled={page === 1 || loading}
           >
-          {loading && <Spinner />}
-          <span>Previous</span>
+            {loading && <Spinner />}
+            <span>Previous</span>
           </button>
           <span className="text-sm text-gray-600">Page {page}</span>
           <button
-          className="inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm disabled:opacity-50"
+            className="inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm disabled:opacity-50"
             onClick={() => setPage((p) => p + 1)}
             disabled={loading || (total !== null && page * pageSize >= total)}
           >
-          {loading && <Spinner />}
-          <span>Next</span>
+            {loading && <Spinner />}
+            <span>Next</span>
           </button>
         </div>
         <div className="flex-1 text-right text-sm text-gray-600">
           {total !== null ? `Total: ${total} listings` : ''}
         </div>
+      </div>
+
+      <div className="mt-4 rounded-lg border border-blue-200 bg-blue-50 p-3 text-sm text-blue-800">
+        <p className="font-medium">Data Source:</p>
+        <p>Properties are fetched from the Mashvisor API with appended data for charts and maps. Extended mock data is used as fallback when API is unavailable.</p>
       </div>
     </div>
   );
